@@ -1,0 +1,17 @@
+.Header{
+    color: #e47c5d;
+}
+
+.Header h2{
+    font-size: 4em;
+    margin: 0px ;
+    padding: 0px ;
+    font-weight: 700;
+    letter-spacing: 5px;
+}
+
+.Header h3{
+    font-size: 1.3em;
+    margin-top: 0px;
+    text-align: center;
+}
