@@ -37,6 +37,22 @@ function App(props) {
     
   }
 
+  const completeTodos = (text) => {
+    const todoIndex = todosValue.findIndex(todo => todo.text === text );
+
+    const newTodos = [...todosValue];
+    newTodos[todoIndex].completed = true;
+    setTodosValue(newTodos);
+  }
+
+  const deleteTodos = (text) => {
+    const todoIndex = todosValue.findIndex(todo => todo.text === text );
+
+    const newTodos = [...todosValue];
+    newTodos.splice(todoIndex, 1);
+    setTodosValue(newTodos);
+  }
+
   return (
     <React.Fragment>
       <div className="container">
@@ -51,7 +67,12 @@ function App(props) {
            setSearchValue={setSearchValue}/>
           <TodoList>
             {searchedTodos.map(todo => (
-              <TodoItem key={todo.text} text={todo.text} completed={todo.completed}/>
+              <TodoItem
+               key={todo.text} 
+               text={todo.text} 
+               completed={todo.completed} 
+               onComplete = {() => completeTodos(todo.text)} 
+               onDelete = {() => deleteTodos(todo.text)}/>
             ))}
           </TodoList>
           <CreateTodoButton/>
