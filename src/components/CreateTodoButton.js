@@ -1,14 +1,14 @@
 import React from "react";
 import "../css/CreateTodoButton.css"
-function CreateTodoButton() {
+function CreateTodoButton(props) {
 
-    const onClickButton = (msg) => {
-        alert(msg)
-    }
+    const onClickButton = () => {
+        props.setOpenModal(preVstate => !preVstate);
+    };
 
     return(
         <button
-         onClick={() => onClickButton('alerta creada por parametro')} 
+         onClick={onClickButton} 
          className="CreateTodoButton">+</button>
     );
 }
